@@ -68,7 +68,7 @@ button:hover{
 <script setup>
 
 import {defineProps, reactive, watch} from 'vue';
-import {fetchKeywordInfo} from '../../Helpers/Helpers.js'
+import { fetchKeywordInfo } from '../../Helpers/Helpers.js'
 defineProps({
   keyword_label: String,
 })

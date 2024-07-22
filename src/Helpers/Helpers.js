@@ -1,7 +1,9 @@
 import {reactive, watch} from "vue";
 
+
 export function playSound(path,volume)  {
-    import(path).then((module) => {
+
+    import( /* @vite-ignore */path).then((module) => {
         const audio = new Audio(module.default);
         audio.volume = volume;
         audio.play()
@@ -17,7 +19,7 @@ export async function fetchKeywordInfo(keyword,website,restricted,index){
             if(response.ok){
                 return response.json();
             }
-            throw new Error(`HTTP error! status: ${response.status}`)
+            return { error: response.error }
         })
         .catch((error) => {
             console.error(`Something crashed ${error}`)
@@ -36,7 +38,7 @@ export function sendToController(route,method,data){
             body: JSON.stringify(data)
         })
         .then((response) => {
-            return response.ok ? response.json() : throw new Error(`HTTP error! status: ${response.status}`) ;
+            return response.ok ? response.json() : {message: 'HTTP error!', status: response.status};
         })
         .catch((error) => {
             console.error('Error fetching data: ', error);
