@@ -1,0 +1,1 @@
+<template> <h1>Inställningar</h1></template>

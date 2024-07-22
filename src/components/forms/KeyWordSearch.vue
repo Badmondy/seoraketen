@@ -67,12 +67,14 @@ button:hover{
 </template>
 <script setup>
 
-import {defineProps, reactive, watch} from 'vue';
+import {defineProps, reactive, watch, onMounted} from 'vue';
 import { fetchKeywordInfo } from '../../Helpers/Helpers.js'
+import { useStore } from 'vuex';
+import { useRouter } from "vue-router";
+
 defineProps({
   keyword_label: String,
 })
-
 const state = reactive({
     website: '',
     data: [],
@@ -80,6 +82,14 @@ const state = reactive({
     restricted: false,
     errorMessage: '',
 })
+
+const router = useRouter();
+
+const store = useStore();
+
+/*onMounted(() => {
+  store.commit('updateData', {fisk:37})
+});*/
 
 const validator = reactive({
   website: true,
@@ -110,7 +120,10 @@ const getData = () => {
           if(data.error){
             state.errorMessage = data.error
           }else{
-            state.data = data;
+            /** Ändra till vuex istället **/
+            state.data.value = data;
+            store.commit('updateData', {data:data})
+            router.push('/data');
           }
         }).catch((error) => {
             console.error(`Last error`, error);
