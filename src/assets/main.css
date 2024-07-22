@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+header:has(> nav){
+    height:8.5vh;
+}
+
+header:has(>nav), aside, footer{
+    font-family: 'Roboto Slab', serif;
+    font-optical-sizing: auto;
+    font-style:normal;
+}
+
+.aside{
+    width:3.5%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px -6px 20px -2px, rgba(0, 0, 0, 0.3) 0px -3px 7px -3px;
+    background-color: #34495E;
+}
+nav{
+    width:3.5%;
+}
+
+.main-content{
+    height: 91.5vh;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 20px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-right:none;
+    overflow-y: auto;
+    scrollbar-width:thin;
+    -ms-overflow-style: none;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.65rem;
+    font-weight: 300;
+    background-color: rgba(245, 245, 220, 0.14);
+    font-optical-sizing: auto;
+    font-style:normal;
+}
+
+
+#vue-logo{
+    width:45px;
+    height:45px;
+}
+
+
+
+@media screen and (width < 900px) and (orientation: landscape) {
+    #vue-logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .aside, nav {
+        width: 5.5%;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (width < 900px) and (orientation: portrait) {
+    #vue-logo{
+        width:30px;
+        height:30px;
+    }
+    .aside, nav {
+        width: 10%;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+}
